@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .result-container p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Employee Form</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter full name">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter email address">
+    
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" placeholder="Enter phone number">
+    
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" placeholder="Enter job title">
+    
+    <label for="department">Department:</label>
+    <select id="department">
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <option value="IT">IT</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Sales">Sales</option>
+    </select>
+    
+    <button onclick="displayEmployeeData()">Submit</button>
+</div>
+
+<div class="result-container" id="resultContainer" style="display: none;">
+    <h3>Employee Information</h3>
+    <p id="resultName"></p>
+    <p id="resultEmail"></p>
+    <p id="resultPhone"></p>
+    <p id="resultJobTitle"></p>
+    <p id="resultDepartment"></p>
+</div>
+
+<script>
+    function displayEmployeeData() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const jobTitle = document.getElementById('jobTitle').value;
+        const department = document.getElementById('department').value;
+
+        if (!name || !email || !phone || !jobTitle) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        document.getElementById('resultName').textContent = name;
+        document.getElementById('resultEmail').textContent = email;
+        document.getElementById('resultPhone').textContent = phone;
+        document.getElementById('resultJobTitle').textContent = jobTitle;
+        document.getElementById('resultDepartment').textContent = department;
+        
+       document.getElementById('resultContainer').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
