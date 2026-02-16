@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <style>
+        body{
+            align-items: center;
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,193,233,1) 100%);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            align-content: center;
+            display:flex;
+            justify-content: space-around;
+            padding: 100px;
+            margin: 100px;
+            border: 100px;
+        }
+        button{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Employee Form</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter full name">
+    <br>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter email id">
+    <br>
+    <br>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" placeholder="Enter phone number">
+    <br>
+    <br>
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" placeholder="Enter job title">
+    <br>
+    <br>
+    <label for="department">Department:</label>
+    <input type="text" id="department" placeholder="Enter department">
+    <br>
+    <br>
+    <button onclick="displayEmployeeData()">Submit</button>
+    <br>
+</div>
+
+<div class="result-container" id="resultContainer" style="display: none;">
+    <h3>Employee Information</h3>
+    <p id="resultName"></p>
+    <p id="resultEmail"></p>
+    <p id="resultPhone"></p>
+    <p id="resultJobTitle"></p>
+    <p id="resultDepartment"></p>
+</div>
+
+<script>
+    function displayEmployeeData() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const jobTitle = document.getElementById('jobTitle').value;
+        const department = document.getElementById('department').value;
+
+        if (!name || !email || !phone || !jobTitle) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        document.getElementById('resultName').textContent = name;
+        document.getElementById('resultEmail').textContent = email;
+        document.getElementById('resultPhone').textContent = phone;
+        document.getElementById('resultJobTitle').textContent = jobTitle;
+        document.getElementById('resultDepartment').textContent = department;
+        
+       document.getElementById('resultContainer').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
